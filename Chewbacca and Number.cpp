@@ -20,9 +20,9 @@ Explanation
 There are many numbers form after inverting the digit. For minimum number, check if inverting digit is less than or greater than the original digit. If it is less, then invert it otherwise leave it.
 */
 
-
 #include<iostream>
 using namespace std;
+
 int main() {
 
 	char a[50];
