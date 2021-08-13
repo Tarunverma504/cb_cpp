@@ -17,27 +17,25 @@ a
 Explanation
 For the given input string, a appear 4 times. Hence, it is the most frequent character.
 */
-import java.util.*;
-public class Main {
-    public static void main(String args[]) {
-        // Your Code Here
-		Scanner sc=new Scanner(System.in);
-		HashMap<Character,Integer> h=new HashMap<Character,Integer>();
-		String str=sc.nextLine();
-		for(int i=0;i<str.length();i++){
-			int freq=h.get(str.charAt(i))==null?1:h.get(str.charAt(i))+1;
-			h.put(str.charAt(i),freq);
+#include<iostream>
+using namespace std;
+int main() {
+	string str;
+	getline(cin,str);
+	int arr[256]={0};
+	for(int i=0;i<str.length();i++){
+		arr[str[i]]+=1;
+	}
+	int max=0;
+	char ch=str[0];
+	for(int i=0;i<str.length();i++){
+		//cout<<arr[str[i]-'a']<<" ";
+		if(arr[str[i]]>max){
+			max=arr[str[i]];
+			ch=str[i];
+			arr[str[i]]=0;
 		}
-		int max=0;
-		char result=str.charAt(0);
-		for(Map.Entry<Character,Integer> m: h.entrySet()){
-			if(max<m.getValue()){
-				result=m.getKey();
-				max=m.getValue();
-			}
-			
-		}
-		System.out.println(result);
-    }
+	}
+	cout<<ch;
+	return 0;
 }
-
